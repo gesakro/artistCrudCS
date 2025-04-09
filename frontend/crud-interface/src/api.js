@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 
 // Usa la variable de entorno para la URL del backend
@@ -30,9 +29,14 @@ export const deleteArtistByName = async (name) => {
   return response.data;
 };
 
-// Funciones para Álbumes y Canciones
+// Funciones para Álbumes
 export const createAlbum = async (album) => {
   const response = await axios.post(`${API_URL}/albums/`, album);
+  return response.data;
+};
+
+export const updateAlbum = async (id, album) => {
+  const response = await axios.put(`${API_URL}/albums/${id}`, album);
   return response.data;
 };
 
@@ -51,8 +55,14 @@ export const getFullAlbums = async () => {
   return response.data;
 };
 
+// Funciones para Canciones
 export const createSong = async (song) => {
   const response = await axios.post(`${API_URL}/songs/`, song);
+  return response.data;
+};
+
+export const updateSong = async (id, song) => {
+  const response = await axios.put(`${API_URL}/songs/${id}`, song);
   return response.data;
 };
 

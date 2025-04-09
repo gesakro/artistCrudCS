@@ -1,4 +1,3 @@
-# crud.py
 from sqlalchemy.orm import Session
 from models import Artist, Album, Song
 
@@ -46,6 +45,15 @@ def create_album(db: Session, data: dict):
     db.refresh(new_album)
     return new_album
 
+def update_album(db: Session, album_id: int, data: dict):
+    album = db.query(Album).filter(Album.id == album_id).first()
+    if album:
+        for key, value in data.items():
+            setattr(album, key, value)
+        db.commit()
+        db.refresh(album)
+    return album
+
 def delete_album(db: Session, album_id: int):
     album = db.query(Album).filter(Album.id == album_id).first()
     if album:
@@ -61,6 +69,15 @@ def create_song(db: Session, data: dict):
     db.commit()
     db.refresh(new_song)
     return new_song
+
+def update_song(db: Session, song_id: int, data: dict):
+    song = db.query(Song).filter(Song.id == song_id).first()
+    if song:
+        for key, value in data.items():
+            setattr(song, key, value)
+        db.commit()
+        db.refresh(song)
+    return song
 
 def delete_song(db: Session, song_id: int):
     song = db.query(Song).filter(Song.id == song_id).first()

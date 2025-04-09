@@ -1,6 +1,19 @@
 /* App.css */
 
-/* Estilos globales */
+/* Variables globales (Paleta Modernizada) */
+:root {
+  --primary-color: #3498db;          /* Azul claro para elementos destacados */
+  --primary-hover-color: #2980b9;      /* Azul un poco más oscuro al pasar el ratón */
+  --success-color: #27ae60;            /* Verde para acciones exitosas */
+  --success-hover-color: #1e8449;      /* Verde oscuro para hover */
+  --danger-color: #e74c3c;             /* Rojo para acciones de eliminación */
+  --danger-hover-color: #c0392b;       /* Rojo oscuro para hover */
+  --background-color: #ecf0f1;         /* Fondo gris muy claro */
+  --text-color: #2c3e50;               /* Texto en azul muy oscuro */
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Reset y estilos globales */
 * {
   margin: 0;
   padding: 0;
@@ -8,9 +21,9 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
   line-height: 1.6;
 }
 
@@ -27,7 +40,7 @@ body {
   margin-bottom: 40px;
 }
 
-/* Formulario */
+/* Formularios generales */
 form {
   background: #fff;
   border: 1px solid #ddd;
@@ -39,8 +52,8 @@ form {
 
 form h2 {
   margin-bottom: 15px;
-  color: #007bff;
-  border-bottom: 2px solid #007bff;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
   padding-bottom: 5px;
 }
 
@@ -61,20 +74,55 @@ form select {
 }
 
 form button {
-  background: #007bff;
+  background: var(--primary-color);
   color: #fff;
   border: none;
   padding: 10px 15px;
   border-radius: 3px;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
 form button:hover {
-  background: #0056b3;
+  background: var(--primary-hover-color);
 }
 
-/* Listas y botones generales */
+/* Formularios de edición */
+.edit-form {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.edit-form h3 {
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.edit-form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.edit-form button {
+  background: var(--success-color);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.edit-form button:hover {
+  background: var(--success-hover-color);
+}
+
+/* Listas y elementos */
 ul {
   list-style: none;
   margin-top: 10px;
@@ -91,18 +139,22 @@ ul li {
   justify-content: space-between;
 }
 
+/* Botones en las listas */
 ul li button {
-  background: #dc3545;
-  border: none;
-  color: #fff;
   padding: 5px 10px;
   border-radius: 3px;
+  font-size: 0.9rem;
+  border: none;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
-ul li button:hover {
-  background: #c82333;
+ul li button.delete-btn {
+  background: var(--danger-color);
+  color: #fff;
+}
+
+ul li button.delete-btn:hover {
+  background: var(--danger-hover-color);
 }
 
 /* Secciones de componentes */
@@ -115,11 +167,10 @@ ul li button:hover {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Títulos de secciones */
 .component-section h2 {
   margin-bottom: 15px;
-  color: #007bff;
-  border-bottom: 2px solid #007bff;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
   padding-bottom: 5px;
 }
 

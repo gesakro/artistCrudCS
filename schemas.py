@@ -9,6 +9,10 @@ class SongBase(BaseModel):
 class SongCreate(SongBase):
     album_id: int
 
+# Nuevo schema para actualizar una canción (solo se actualiza el título)
+class SongUpdate(SongBase):
+    pass
+
 class SongResponse(SongBase):
     id: int
     album_id: int
@@ -22,6 +26,10 @@ class AlbumBase(BaseModel):
 
 class AlbumCreate(AlbumBase):
     artist_id: int
+
+# Nuevo schema para actualizar un álbum (solo se actualiza el título)
+class AlbumUpdate(AlbumBase):
+    pass
 
 # Esta versión básica se puede seguir usando donde no necesitemos incluir artistas y canciones
 class AlbumResponse(AlbumBase):
